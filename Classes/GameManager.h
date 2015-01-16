@@ -6,44 +6,44 @@
 
 USING_NS_CC;
 
-class GameManager 
+class GameManager
 {
-
+    
 public:
-	static GameManager * getInstance();
-	static void freeInstance();
-
-	Map<int, Sprite *> & getHeros() { return _heros; }
-	void getHeroLayoutInfoByIdx(int idx, HeroLayoutInfo &info);
-	std::vector<MissionInfo> &getMissionStatus(){return _mision_status;}
-
-	void loadMissionData();
-	void loadLayoutData();
-	void saveMissionData(MissionInfo info);
-	void SaveCurrentMission(int idx, HeroLayoutInfo &layout);
-	void loadCurrentMission(HeroLayoutInfo & layout);
-	void updateLayoutData(std::string filePath);
-
-	int getCheatCount();
-	void changeCheatCount(int);
-
-	bool isFirstPlay();
-	void setPlayed();
-
+    static GameManager * getInstance();
+    static void freeInstance();
+    
+    Map<int, Sprite *> & getHeros() { return _heros; }
+    void getHeroLayoutInfoByIdx(int idx, HeroLayoutInfo &info);
+    std::vector<MissionInfo> &getMissionStatus(){return _mision_status;}
+    
+    void loadMissionData();
+    void loadLayoutData();
+    void saveMissionData(MissionInfo info);
+    void SaveCurrentMission(int idx, HeroLayoutInfo &layout);
+    void loadCurrentMission(HeroLayoutInfo & layout);
+    void updateLayoutData(std::string filePath);
+    
+    int getCheatCount();
+    void changeCheatCount(int);
+    
+    bool isFirstPlay();
+    void setPlayed();
+    
 private:
-	GameManager(void);
-	~GameManager(void);
-
-	void split(std::string &src, const char *deliem);
-
-	bool init();
-
+    GameManager(void);
+    ~GameManager(void);
+    
+    void split(std::string &src, const char *deliem);
+    
+    bool init();
+    
 private:
-	static GameManager *_manager;				//±¾ÀàÊµÀı
-	Map<int, Sprite *> _heros;					//Ã¿ÖÖÎä½«µÄ¾«ÁéÊµÀı
-	std::vector<std::string> _layoutInfoStrs;	//´ÓÅäÖÃÎÄ¼ş¶ÁÈ¡µÄ ²¼¾Ö/²½Êı/½â·¨ ×Ö·û´®¼¯ºÏ
-	std::vector<MissionInfo> _mision_status;	//Ã¿¸ö¹Ø¿¨ĞÅÏ¢µÄ¼¯ºÏ
-
+    static GameManager *_manager;				//æœ¬ç±»å®ä¾‹
+    Map<int, Sprite *> _heros;					//æ¯ç§æ­¦å°†çš„ç²¾çµå®ä¾‹
+    std::vector<std::string> _layoutInfoStrs;	//ä»é…ç½®æ–‡ä»¶è¯»å–çš„ å¸ƒå±€/æ­¥æ•°/è§£æ³• å­—ç¬¦ä¸²é›†åˆ
+    std::vector<MissionInfo> _mision_status;	//æ¯ä¸ªå…³å¡ä¿¡æ¯çš„é›†åˆ
+    
 };
 
 

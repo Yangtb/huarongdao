@@ -8,25 +8,25 @@ USING_NS_CC;
 USING_NS_CC_EXT;
 class SliderBar:public Node{
 public:
-	/* ´´½¨¶ÔÏó ²ÎÊı£º»¬¶¯Ìõ×ÊÔ´ ±³¾°×ÊÔ´ ±³¾°´óĞ¡ »¬¶¯Ìõ´óĞ¡±ÈÂÊ */
-	static SliderBar * createSliderBar(const char * sliderFileName,const char * backgroundFileName,CCSize bgSize,float multiple);
-	/* ³õÊ¼»¯·½·¨ */
-	bool init(const char * sliderFileName,const char * backgroundFileName,CCSize bgSize,float multiple);
-	SliderBar(); //¹¹Ôìº¯Êı
-	~SliderBar(); //Îö¹¹º¯Êı
-	/* ÉèÖÃ¹ö¶¯Ìõ¾«ÁéÔÚÆä±³¾°¾«ÁéÉÏÎ»ÖÃµÄ°Ù·Ö±È Çø¼ä[0,1] µ±³¬¹ıÕâ¸ö·¶Î§Ê±½øĞĞËõ·Å */
-	void setValue(float value);
+    /* åˆ›å»ºå¯¹è±¡ å‚æ•°ï¼šæ»‘åŠ¨æ¡èµ„æº èƒŒæ™¯èµ„æº èƒŒæ™¯å¤§å° æ»‘åŠ¨æ¡å¤§å°æ¯”ç‡ */
+    static SliderBar * createSliderBar(const char * sliderFileName,const char * backgroundFileName,CCSize bgSize,float multiple);
+    /* åˆå§‹åŒ–æ–¹æ³• */
+    bool init(const char * sliderFileName,const char * backgroundFileName,CCSize bgSize,float multiple);
+    SliderBar(); //æ„é€ å‡½æ•°
+    ~SliderBar(); //ææ„å‡½æ•°
+    /* è®¾ç½®æ»šåŠ¨æ¡ç²¾çµåœ¨å…¶èƒŒæ™¯ç²¾çµä¸Šä½ç½®çš„ç™¾åˆ†æ¯” åŒºé—´[0,1] å½“è¶…è¿‡è¿™ä¸ªèŒƒå›´æ—¶è¿›è¡Œç¼©æ”¾ */
+    void setValue(float value);
 public:
-	/* ´´½¨³ÉÔ±±äÁ¿¼°get¡¢set·½·¨ */
-	CC_SYNTHESIZE(Scale9Sprite *, m_sliderSprite, SliderSprite);
-	CC_SYNTHESIZE(Scale9Sprite *, m_backgroundSprite, BackgroundSprite);
-	/* ¹ö¶¯Ìõ¾«Áé³õÊ¼Î»ÖÃ */
-	CCPoint _beginPos;
-	/* ¹ö¶¯Ìõ¾«Áé×îÖÕÎ»ÖÃ */
-	CCPoint _endPos;
-	/* ¹ö¶¯Ìõ±³¾°¾«Áé´óĞ¡ */
-	CCSize _bgSize;
-	/* ¹ö¶¯Ìõ¾«Áé´óĞ¡ */
-	CCSize _sdSize;
+    /* åˆ›å»ºæˆå‘˜å˜é‡åŠgetã€setæ–¹æ³• */
+    CC_SYNTHESIZE(Scale9Sprite *, m_sliderSprite, SliderSprite);
+    CC_SYNTHESIZE(Scale9Sprite *, m_backgroundSprite, BackgroundSprite);
+    /* æ»šåŠ¨æ¡ç²¾çµåˆå§‹ä½ç½® */
+    CCPoint _beginPos;
+    /* æ»šåŠ¨æ¡ç²¾çµæœ€ç»ˆä½ç½® */
+    CCPoint _endPos;
+    /* æ»šåŠ¨æ¡èƒŒæ™¯ç²¾çµå¤§å° */
+    CCSize _bgSize;
+    /* æ»šåŠ¨æ¡ç²¾çµå¤§å° */
+    CCSize _sdSize;
 };
 #endif /* defined(__shaderTest__SliderBar__) */

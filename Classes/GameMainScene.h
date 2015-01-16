@@ -10,46 +10,46 @@ USING_NS_CC;
 class GameMainScene : public Layer
 {
 public:
-
-	GameMainScene();
-
-
-	virtual bool init();
-	virtual bool initWithMissionIdx(int idx, bool isContinue);
-
-	CREATE_FUNC(GameMainScene);
-	static GameMainScene * create(int idx, bool isContinue);
-
+    
+    GameMainScene();
+    
+    
+    virtual bool init();
+    virtual bool initWithMissionIdx(int idx, bool isContinue);
+    
+    CREATE_FUNC(GameMainScene);
+    static GameMainScene * create(int idx, bool isContinue);
+    
 public:
-	static Scene * createScene(int idx, bool isContinue);
-
+    static Scene * createScene(int idx, bool isContinue);
+    
 private:
-	CanMovedDirection checkMoveDirection(Sprite *sprite);
-	void refreshLayoutInfo();
-	void changeTime(float dt);
-	void cheat(Ref *pRef);
-	void resetHerosPosition();
-	void winFunc(float dt);
-
-	void popLayerCallFunc(Node *);
-
+    CanMovedDirection checkMoveDirection(Sprite *sprite);
+    void refreshLayoutInfo();
+    void changeTime(float dt);
+    void cheat(Ref *pRef);
+    void resetHerosPosition();
+    void winFunc(float dt);
+    
+    void popLayerCallFunc(Node *);
+    
 private:
-
-	std::vector<Rect> _emptyCells;			//¿Õ¸ñ×ÓµÄÎ»ÖÃ
-	Vector<Sprite *> _heros;				//Îä½«¼¯ºÏ
-	Rect _winCell;							//ÅĞ¶ÏÊ¤ÀûµÄ¾ØĞÎÇøÓò
-			
-	Vec2 _beginPos;							//´¥Ãş¿ªÊ¼µã
-	Vec2 _currentPos;						//±»µã»÷µÄÎä½«µÄµ±Ç°Î»ÖÃ
-		
-	CanMovedDirection _currentDirection;	//±»µã»÷µÄÎä½«µ±Ç°¿ÉÒÆ¶¯µÄ·½Ïò
-	HeroLayoutInfo _layoutInfo;				//Îä½«²¼¾ÖÊı×é
-	
-	MissionInfo _userData;					//ÓÃ»§Êı¾İ £¨²½Êı£¬Ê±¼äµÈ£©	
-
-	int _currentCheatStep;					//¿ªÆôÃØ¼®Ê±½øĞĞµ½µÚ¼¸²½
-
-	const std::string _strStep;
+    
+    std::vector<Rect> _emptyCells;			//ç©ºæ ¼å­çš„ä½ç½®
+    Vector<Sprite *> _heros;				//æ­¦å°†é›†åˆ
+    Rect _winCell;							//åˆ¤æ–­èƒœåˆ©çš„çŸ©å½¢åŒºåŸŸ
+    
+    Vec2 _beginPos;							//è§¦æ‘¸å¼€å§‹ç‚¹
+    Vec2 _currentPos;						//è¢«ç‚¹å‡»çš„æ­¦å°†çš„å½“å‰ä½ç½®
+    
+    CanMovedDirection _currentDirection;	//è¢«ç‚¹å‡»çš„æ­¦å°†å½“å‰å¯ç§»åŠ¨çš„æ–¹å‘
+    HeroLayoutInfo _layoutInfo;				//æ­¦å°†å¸ƒå±€æ•°ç»„
+    
+    MissionInfo _userData;					//ç”¨æˆ·æ•°æ® ï¼ˆæ­¥æ•°ï¼Œæ—¶é—´ç­‰ï¼‰
+    
+    int _currentCheatStep;					//å¼€å¯ç§˜ç±æ—¶è¿›è¡Œåˆ°ç¬¬å‡ æ­¥
+    
+    const std::string _strStep;
 };
 
 #endif // GAME_MAIN_SCENE_H_

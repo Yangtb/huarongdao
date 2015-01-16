@@ -8,25 +8,25 @@ USING_NS_CC;
 class UserData : public cocos2d::Ref
 {
 public:
-	UserData();
-	~UserData();
-
-	int getMissionIdx() {return _currentMission;}
-	int getStepCount() {return _stepCount;}
-	unsigned getTime() {return _time;}
-	bool isDone() {return _isDone;}
-
-	void setMissionIdx(int idx){_currentMission = idx;}
-	void setStepCount(unsigned count){_stepCount = count;}
-	void setTime(long dt) {_time = dt;}
-	void setIsDone(bool is) {_isDone = is; }
-
+    UserData();
+    ~UserData();
+    
+    int getMissionIdx() {return _currentMission;}
+    int getStepCount() {return _stepCount;}
+    unsigned getTime() {return _time;}
+    bool isDone() {return _isDone;}
+    
+    void setMissionIdx(int idx){_currentMission = idx;}
+    void setStepCount(unsigned count){_stepCount = count;}
+    void setTime(long dt) {_time = dt;}
+    void setIsDone(bool is) {_isDone = is; }
+    
 private:
-	int _currentMission;							//当前关卡索引
-	unsigned int _stepCount;						//步数
-	long _time;							//时间
-	HeroType _layout[ROWS][COLUMS];				//武将布局
-	bool _isDone;								//是否通关
+    int _currentMission;							//褰撳墠鍏冲崱绱㈠紩
+    unsigned int _stepCount;						//姝ユ暟
+    long _time;							//鏃堕棿
+    HeroType _layout[ROWS][COLUMS];				//姝﹀皢甯冨眬
+    bool _isDone;								//鏄惁閫氬叧
 };
 
 

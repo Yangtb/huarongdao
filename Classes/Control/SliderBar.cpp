@@ -1,14 +1,14 @@
 #include "SliderBar.h"
 
 SliderBar * SliderBar::createSliderBar(const char * sliderFileName,const char * backgroundFileName,CCSize bgSize,float multiple){
-	SliderBar * pRet=new SliderBar();
-	if (pRet && pRet->init(sliderFileName, backgroundFileName,bgSize,multiple)) {
-		pRet->autorelease();
-		return pRet;
-	}
-	else
-		CC_SAFE_DELETE(pRet);
-	return NULL;
+    SliderBar * pRet=new SliderBar();
+    if (pRet && pRet->init(sliderFileName, backgroundFileName,bgSize,multiple)) {
+        pRet->autorelease();
+        return pRet;
+    }
+    else
+        CC_SAFE_DELETE(pRet);
+    return NULL;
 }
 
 SliderBar::SliderBar(){
@@ -16,40 +16,40 @@ SliderBar::SliderBar(){
 SliderBar::~SliderBar(){
 }
 bool SliderBar::init(const char * sliderFileName,const char * backgroundFileName,Size bgSize,float multiple){
-	/* ³õÊ¼»¯±äÁ¿ */
-	_bgSize=bgSize;
-	/* Ò»¶¨ÒªÊ¹ÓÃ¾Å¹¬¸ñ¾«Áé */
-	m_backgroundSprite=Scale9Sprite::create(backgroundFileName);
-	m_backgroundSprite->setContentSize(Size( m_backgroundSprite->getContentSize().width, bgSize.height));
-	this->addChild(m_backgroundSprite);
-	m_sliderSprite=Scale9Sprite::create(sliderFileName);
-	m_sliderSprite->setContentSize(bgSize/multiple);
-	this->addChild(m_sliderSprite);
-	_beginPos=ccp(-_bgSize.width/2 + m_sliderSprite->getContentSize().width/2,0);
-	_endPos= ccp(_bgSize.width/2 - m_sliderSprite->getContentSize().width/2,0);
-	m_sliderSprite->setPosition(_beginPos);
-
-	_sdSize=m_sliderSprite->getContentSize();
-	return true;
+    /* åˆå§‹åŒ–å˜é‡ */
+    _bgSize=bgSize;
+    /* ä¸€å®šè¦ä½¿ç”¨ä¹å®«æ ¼ç²¾çµ */
+    m_backgroundSprite=Scale9Sprite::create(backgroundFileName);
+    m_backgroundSprite->setContentSize(Size( m_backgroundSprite->getContentSize().width, bgSize.height));
+    this->addChild(m_backgroundSprite);
+    m_sliderSprite=Scale9Sprite::create(sliderFileName);
+    m_sliderSprite->setContentSize(bgSize/multiple);
+    this->addChild(m_sliderSprite);
+    _beginPos=ccp(-_bgSize.width/2 + m_sliderSprite->getContentSize().width/2,0);
+    _endPos= ccp(_bgSize.width/2 - m_sliderSprite->getContentSize().width/2,0);
+    m_sliderSprite->setPosition(_beginPos);
+    
+    _sdSize=m_sliderSprite->getContentSize();
+    return true;
 }
 
 void SliderBar::setValue(float value){
-	/* Õý³£Çø¼ä·¶Î§»î¶¯ */
-	if (value>=0 && value<=1) {
-		/* ÖØÐÂÉèÖÃÎ»ÖÃ */
-		m_sliderSprite->setPosition(ccp(_beginPos.x+(_endPos.x-_beginPos.x) * value , 0));
-	}
-	/* »¬¶¯µ½×î×ó²à */
-	else if (value<0){
-		/* ÖØÐÂÉèÖÃ´óÐ¡¼°Î»ÖÃ */
-		m_sliderSprite->setContentSize(CCSize(_sdSize.width+value *_sdSize.width,_sdSize.height));
-		m_sliderSprite->setPosition(ccp(_beginPos.x+value *_sdSize.width/2, 0));
-	}
-	/* »¬¶¯µ½×îÓÒ²à */
-	else if (value>1){
-		/* ÖØÐÂÉèÖÃ´óÐ¡¼°Î»ÖÃ */
-		m_sliderSprite->setContentSize(CCSize(_sdSize.width+(1-value) *_sdSize.width,_sdSize.height));
-		m_sliderSprite->setPosition(ccp(_endPos.x-(1-value) *_sdSize.width/2, 0));
-	}
-
+    /* æ­£å¸¸åŒºé—´èŒƒå›´æ´»åŠ¨ */
+    if (value>=0 && value<=1) {
+        /* é‡æ–°è®¾ç½®ä½ç½® */
+        m_sliderSprite->setPosition(ccp(_beginPos.x+(_endPos.x-_beginPos.x) * value , 0));
+    }
+    /* æ»‘åŠ¨åˆ°æœ€å·¦ä¾§ */
+    else if (value<0){
+        /* é‡æ–°è®¾ç½®å¤§å°åŠä½ç½® */
+        m_sliderSprite->setContentSize(CCSize(_sdSize.width+value *_sdSize.width,_sdSize.height));
+        m_sliderSprite->setPosition(ccp(_beginPos.x+value *_sdSize.width/2, 0));
+    }
+    /* æ»‘åŠ¨åˆ°æœ€å³ä¾§ */
+    else if (value>1){
+        /* é‡æ–°è®¾ç½®å¤§å°åŠä½ç½® */
+        m_sliderSprite->setContentSize(CCSize(_sdSize.width+(1-value) *_sdSize.width,_sdSize.height));
+        m_sliderSprite->setPosition(ccp(_endPos.x-(1-value) *_sdSize.width/2, 0));
+    }
+    
 }
